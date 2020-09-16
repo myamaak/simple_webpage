@@ -1,0 +1,111 @@
+/* h1 {
+  color: #002642;
+  font-weight: 700;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  text-align: center;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+
+#ujoin{
+  text-transform: uppercase;
+  font-size: 30px;
+  color: #FFFFFF;
+  font-family: Tahoma;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  text-shadow: 1px 2px 2px #292E30;
+  text-align: center;
+}
+
+.fyijoin{
+  color: #FFFFFF;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: Tahoma;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  text-shadow: 1px 2px 2px #292E30;
+  position: relative;
+  /* text-align: left; */
+}
+
+
+div#container {
+  box-sizing: border-box;
+  width: 700px;
+  border-radius: 10px;
+  border: 1.5px solid #3C667C;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /* background: #041D71; */
+  /* background: linear-gradient(to bottom, #041D71 0%, #7F8FA3 100%); */
+  text-align: center;
+  margin: auto;
+  /* horizontal center>margin auto */
+}
+
+.header {
+  padding: 10px 16px;
+  background: #FFFFFF;
+  color: #4D85B7;;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+/*
+#remember{
+  font-family: Tahoma;
+  font-size: 12px;
+  color: #4D85B7;
+} */
+
+.uinfohidden {
+  display: none;
+}
+
+#user-info {
+  border: 1px solid #CCC;
+  clear: both;
+  margin: 0 auto 20px;
+  max-width: 400px;
+  padding: 10px;
+  text-align: left;
+}
+
+#photo-container {
+  background-color: #EEE;
+  border: 1px solid #CCC;
+  float: left;
+  height: 80px;
+  margin-right: 10px;
+  width: 80px;
+}
+
+#photo {
+  height: 80px;
+  margin: 0;
+  width: 80px;
+}
+
+@media (max-width: 300px) {
+  #photo-container,
+  #photo {
+    height: 40px;
+    width: 40px;
+  }
+}

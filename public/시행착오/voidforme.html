@@ -1,0 +1,16 @@
+<html>
+<head>
+</head>
+<body>
+  <input type="text" id="myText"></input>
+  <button onclick="sendMail();"> Send </button>
+  <script>
+  function sendMail() {
+    var subject = ('My permanent subject line');
+    var body = ('My permanent body contents');
+    document.write('<a href="mailto: ramda4415@gmail.com' + '?subject=' +subject+ '&body=' +body+ '">' + 'Click here to send email as well' + '<'+'/a>');
+}
+  </script>
+
+</body>
+</html>

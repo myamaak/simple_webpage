@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Standigm - Welcome</title>
+    <script src="https://smartlock.google.com/client"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <link href="form.css" rel="stylesheet"></link>
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+    <script src="config.js?=1"></script>
+    <script src="app.js?=9"></script>
+
+      <script>
+      window.addEventListener('load', function() {
+        firebase.auth().onAuthStateChanged(function(user){
+          if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var uid = user.uid;
+            var phoneNumber = user.phoneNumber;
+            var providerData = user.providerData;
+            document.getElementById('authuser').innerHTML = displayName;
+
+            if(user.emailVerified) {
+              document.getElementById('myHeader').style.display = 'none';
+              }
+        }else{
+          document.getElementById('myHeader').style.display = 'none';
+          document.getElementById('yea').style.display = 'none';
+          document.getElementById('hi').style.display = 'none';
+          document.getElementById('hmm').style.display = 'block';
+          document.getElementById('nothi').style.display = 'block';
+        }
+      });
+    });
+      </script>
+
+    <div class="header" id="myHeader">
+      <p> please verify your email. <a href="javascript:VerifyEmail();">click this link</a> and you will receive verification email from us to your email address! </p>
+    </div>
+
+    <div class="topbtngroup">
+            <button onclick="window.location.href='index.html'" id="homebtn">Standigm</button>
+            <div class='cssmenu' id='cssmenu'>
+            <ul>
+               <li class='has-sub' id= 'only'><a href='#'><span>AUTHORITIES</span></a>
+                 <ul>
+                    <li><a href='/authority/userlist.html'><span>User admin</span></a></li>
+                    <li><a href='#'><span>personal outcome</span></a></li>
+                    <li><a href='#'><span>official schedule</span></a></li>
+                    <li class='last'><a href='#'><span>ongoing projects</span></a></li>
+                 </ul>
+               </li>
+               <li class='has-sub'><a href='#'><span>INTRODUCTION</span></a>
+                  <ul>
+                     <li><a href='#'><span>Home</span></a></li>
+                     <li><a href='#'><span>Team</span></a></li>
+                     <li class='last'><a href='#'><span>Contact</span></a></li>
+                  </ul>
+               </li>
+               <li class='has-sub'><a href='#'><span>PROJECT</span></a>
+                  <ul>
+                     <li><a href='#'><span>project #1</span></a></li>
+                     <li><a href='#'><span>project #2</span></a></li>
+                     <li><a href='#'><span>project #3</span></a></li>
+                     <li class='last'><a href='#'><span>project #4</span></a></li>
+                  </ul>
+               </li>
+               <li class='has-sub'><a href='#'><span>SERVICE</span></a>
+                  <ul>
+                     <li><a href='#'><span>Expander</span></a></li>
+                     <li class='last'><a href='#'><span> ??? </span></a></li>
+                  </ul>
+               </li>
+               <li class='has-sub'><a href='#'><span>NEWS & EVENT</span></a>
+                  <ul>
+                     <li><a href='#'><span>Partnership</span></a></li>
+                     <li><a href='#'><span>News</span></a></li>
+                     <li class='last'><a href='#'><span>Job</span></a></li>
+                  </ul>
+               </li>
+               <li class='has-sub'><a href='success.html'><span>USER PAGE</span></a>
+                  <ul>
+                     <li><a href='success.html'><span>Welcome</span></a></li>
+                     <li><a href='/userpage/user_page.html'><span>User info</span></a></li>
+                     <li><a href='#'><span>Activity record</span></a></li>
+                     <li class='last'><a href='#'><span>Withdrawal</span></a></li>
+                  </ul>
+               </li>
+            </ul>
+            </div>
+    </div>
+</br></br>
+
+<div id="uphead">
+  <div id="yea">
+  <p id="ujoin">Logged In</p>
+  <p class="fyijoin">blahblahblah wo fwoijf;jwoijf;woijefoiwjoiehf;ohwoeifh;wifh</p>
+</div>
+<div id="hmm" style="display: none;">
+  <p id="ujoin">User not known</p>
+  <p class="fyijoin">blahblahblah wo fwoijf;jwoijf;woijefoiwjoiehf;ohwoeifh;wifh</p>
+</div>
+</div>
+
+  </head>
+
+  <body>
+    <script>
+    window.onscroll = function() {myFunction()};
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+    </script>
+
+<div id="container">
+  <div id="hi">
+    <h2>Welcome</h2><h2 id="authuser"></h2>
+    <p id='welcomeMSG'>
+      hello user, you are successfully joined/ logged in to Standigm's website.
+      do not hesitate to explore and use our services.
+    </p>
+    <p id='nothing'></p>
+
+    <p>
+      <button id="sign-out" onclick="signout();">Sign Out</button>
+      <button id="delete-account" onclick="deleteAccount();">Delete account</button>
+    </p>
+  </div>
+  <div id="nothi" style="display: none;">
+    <h3>You are not our member.</br>Please log in first.</h3>
+  </div>
+  </div>
+</br>
+</br>
+</br>
+
+
+  </body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="form.css?version=3" rel="stylesheet"></link>
+    <link href="style.css?version=3" rel="stylesheet"></link>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="standigmtrial.firebaseapp.com">
+    <script src="https://smartlock.google.com/client"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link type="text/css" rel="stylesheet" href="dist/firebaseui.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="manifest.json">
+
+     <script src="config.js?v=1"></script>
+     <script src="app.js"></script>
+      <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+      <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+
+
+    <title>Standigm - Login</title>
+    <div class="topbtngroup">
+            <button onclick="window.location.href='index.html'" id="homebtn">Standigm</button>
+            <div class='cssmenu' id='cssmenu'>
+            <ul>
+               <li class='has-sub' id= 'only'><a href='#'><span>AUTHORITIES</span></a>
+                 <ul>
+                    <li><a href='\authority\userlist.html'><span>User admin</span></a></li>
+                    <li><a href='#'><span>personal outcome</span></a></li>
+                    <li><a href='#'><span>official schedule</span></a></li>
+                    <li class='last'><a href='#'><span>ongoing projects</span></a></li>
+                 </ul>
+               </li>
+               <li class='has-sub'><a href='#'><span>INTRODUCTION</span></a>
+                  <ul>
+                     <li><a href='#'><span>Home</span></a></li>
+                     <li><a href='#'><span>Team</span></a></li>
+                     <li class='last'><a href='#'><span>Contact</span></a></li>
+                  </ul>
+               </li>
+               <li class='has-sub'><a href='#'><span>PROJECT</span></a>
+                  <ul>
+                     <li><a href='#'><span>project #1</span></a></li>
+                     <li><a href='#'><span>project #2</span></a></li>
+                     <li><a href='#'><span>project #3</span></a></li>
+                     <li class='last'><a href='#'><span>project #4</span></a></li>
+                  </ul>
+               </li>
+               <li class='has-sub'><a href='#'><span>SERVICE</span></a>
+                  <ul>
+                     <li><a href='#'><span>Expander</span></a></li>
+                     <li class='last'><a href='#'><span> ??? </span></a></li>
+                  </ul>
+               </li>
+               <li class='has-sub'><a href='#'><span>NEWS & EVENT</span></a>
+                  <ul>
+                     <li><a href='#'><span>Partnership</span></a></li>
+                     <li><a href='#'><span>News</span></a></li>
+                     <li class='last'><a href='#'><span>Job</span></a></li>
+                  </ul>
+               </li>
+               <li class='has-sub'><a href='success.html'><span>USER PAGE</span></a>
+                  <ul>
+                     <li><a href='success.html'><span>Welcome</span></a></li>
+                     <li><a href='\userpage\user_page.html'><span>User info</span></a></li>
+                     <li><a href='#'><span>Activity record</span></a></li>
+                     <li class='last'><a href='#'><span>Withdrawal</span></a></li>
+                  </ul>
+               </li>
+            </ul>
+            </div>
+    </div>
+
+  </head>
+  <body>
+        <script type="text/javascript">
+          var uiConfig = {
+            signInSuccessUrl: "success.html",
+            callbacks: {
+              signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+                var user = authResult.user;
+                var credential = authResult.credential;
+                var isNewUser = authResult.additionalUserInfo.isNewUser;
+                var providerId = authResult.additionalUserInfo.providerId;
+                var operationType = authResult.operationType;
+
+                return true;
+              },
+              signInFailure: function(error) {
+                return handleUIError(error);
+              }
+            } ,
+            credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
+            //queryParameterForSignInSuccessUrl: ,
+            //queryParameterForWidgetMode: ,
+            signInFlow: 'redirect',
+            signInOptions: [
+              {
+                provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                scopes: ['https://www.googleapis.com/auth/plus.login'],
+                customParameters: {prompt: 'select_account'}
+              },
+              {provider: firebase.auth.EmailAuthProvider.PROVIDER_ID}
+            ],
+            signInSuccessUrl:'success.html',
+            // Terms of service for login url go in here!!!
+            tosUrl: '',
+            privacyPolicyUrl: ''
+          };
+          // Initialize the FirebaseUI Widget using Firebase.
+          var ui = new firebaseui.auth.AuthUI(firebase.auth());
+          // The start method will wait until the DOM is loaded.
+            ui.start('#firebaseui-auth-container', uiConfig);
+
+
+        </script>
+
+        <div id="uphead">
+          <p id="ujoin">log in or join us</p>
+          <p class="fyijoin">You can log in to our websight and further exploit our services.</br>
+            Do not hesitate to join us if you are new here on our website!</br>
+          I feel like this notice is too friendly but whatever these will be exchanged anyway and I just needed contents to see how this looks</p>
+        </div>
+
+  <div id="container">
+    <label><span id=userstate></span></label>
+
+        </br>
+      </br>
+
+
+        <div id="firebaseui-auth-container"></div><br>
+        <!-- <div id="firebaseui-auth-container" data-onsuccess="signed();"></div><br><br> -->
+          <!-- <div id="user-signed-in" class="uinfohidden">
+            <div id="user-info">
+              <div id="photo-container">
+                <img id="photo">
+              </div>
+              <div id="name"></div>
+              <div id="email"></div>
+              <div id="phone"></div>
+              <div id="is-new-user"></div>
+            </div>
+        </div> -->
+
+
+  </div>
+
+<script>
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+
+      console.log("Sign-in provider: " + user.providerId);
+      console.log("  Provider-specific UID: " + user.uid);
+      console.log("  Name: " + user.displayName);
+      console.log("  Email: " + user.email);
+      console.log("  Photo URL: " + user.photoURL);
+      console.log("  else: " + user.providerData);
+
+      var uid = user.uid;
+      var displayName = user.displayName;
+      var email = user.email;
+      var phoneNumber = user.phoneNumber;
+      document.getElementById('userstate').innerHTML=displayName+" is logged in";
+
+
+        }else{
+          console.log("logged in status", user);
+        }
+      });
+
+
+</script>
+
+</br>
+</br>
+</br>
+
+  </body>
+</html>

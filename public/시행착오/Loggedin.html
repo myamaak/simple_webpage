@@ -1,0 +1,94 @@
+<html>
+
+<head>
+
+  <title>Welcome User</title>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var firebase = require('firebase');
+    var firebaseui = require('firebaseui');
+    var config = {
+      apiKey: "AIzaSyDaiWiO6Px0ufB5AAaz2N-7cYpSDolV8gM",
+      authDomain: "standigmtrial.firebaseapp.com",
+      databaseURL: "https://standigmtrial.firebaseio.com",
+      projectId: "standigmtrial",
+      storageBucket: "standigmtrial.appspot.com",
+      messagingSenderId: "1057146187860"
+    };
+    firebase.initializeApp(config);
+
+    initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var uid = user.uid;
+            var phoneNumber = user.phoneNumber;
+            var providerData = user.providerData;
+            user.getIdToken().then(function(accessToken) {
+              document.getElementById('sign-in-status').textContent = 'Signed in';
+              document.getElementById('sign-in').textContent = 'Sign out';
+              document.getElementById('account-details').textContent = JSON.stringify({
+                displayName: displayName,
+                email: email,
+                emailVerified: emailVerified,
+                phoneNumber: phoneNumber,
+                photoURL: photoURL,
+                uid: uid,
+                accessToken: accessToken,
+                providerData: providerData
+              }, null, '  ');
+            });
+          } else {
+            // User is signed out.
+            document.getElementById('sign-in-status').textContent = 'Signed out';
+            document.getElementById('sign-in').textContent = 'Sign in';
+            document.getElementById('account-details').textContent = 'null';
+          }
+        }, function(error) {
+          console.log(error);
+        });
+      };
+
+      window.addEventListener('load', function() {
+        initApp()
+      });
+
+
+  </script>
+ </head>
+ <body>
+   <h1>Welcome to My Awesome App</h1>
+    <div id="sign-in-status"></div>
+    <div id="sign-in"></div>
+    <div id="account-details"></div>
+
+    <script>
+ // Track the UID of the current user.
+ var currentUid = null;
+ firebase.auth().onAuthStateChanged(function(user) {
+  // onAuthStateChanged listener triggers every time the user ID token changes.
+  // This could happen when a new user signs in or signs out.
+  // It could also happen when the current user ID token expires and is refreshed.
+  if (user && user.uid != currentUid) {
+   // Update the UI when a new user signs in.
+   // Otherwise ignore if this is a token refresh.
+   // Update the current user UID.  
+   currentUid = user.uid;
+   document.body.innerHTML = '<h1> Congrats ' + user.displayName + ', you are done! </h1> <h2> Now get back to what you love building. </h2> <h2> Need to verify your email address or reset your password? Firebase can handle all of that for you using the email you provided: ' + user.email + '. <h/2>';
+  } else {
+   // Sign out operation. Reset the current user UID.
+   currentUid = null;
+   console.log("no user signed in");
+  }
+ });
+ </script>
+
+ </body>
+
+</html>

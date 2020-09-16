@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Standigm - Admin; UserList</title>
+    <script src="https://smartlock.google.com/client"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+
+    <link href="userlist.css?v=4" rel="stylesheet"></link>
+    <link href="../form.css?v=1" rel="stylesheet"></link>
+    <link rel="manifest" href="../manifest.json">
+    <!---->
+
+      <script src="../config.js"></script>
+      <script src="../app.js"></script>
+
+      <!-- <script src="user_page.js?v=2"></script> -->
+
+      <div class="topbtngroup">
+        <button onclick="window.location.href='index.html'" id="homebtn">Standigm</button>
+
+        <div class='cssmenu' id='cssmenu'>
+        <ul>
+           <li class='has-sub' id= 'only'><a href='#'><span>AUTHORITIES</span></a>
+             <ul>
+                <li><a href='userlist.html'><span>User admin</span></a></li>
+                <li><a href='#'><span>personal outcome</span></a></li>
+                <li><a href='#'><span>official schedule</span></a></li>
+                <li class='last'><a href='#'><span>ongoing projects</span></a></li>
+             </ul>
+           </li>
+           <li class='has-sub'><a href='#'><span>INTRODUCTION</span></a>
+              <ul>
+                 <li><a href='#'><span>Home</span></a></li>
+                 <li><a href='#'><span>Team</span></a></li>
+                 <li class='last'><a href='#'><span>Contact</span></a></li>
+              </ul>
+           </li>
+           <li class='has-sub'><a href='#'><span>PROJECT</span></a>
+              <ul>
+                 <li><a href='#'><span>project #1</span></a></li>
+                 <li><a href='#'><span>project #2</span></a></li>
+                 <li><a href='#'><span>project #3</span></a></li>
+                 <li class='last'><a href='#'><span>project #4</span></a></li>
+              </ul>
+           </li>
+           <li class='has-sub'><a href='#'><span>SERVICE</span></a>
+              <ul>
+                 <li><a href='#'><span>Expander</span></a></li>
+                 <li class='last'><a href='#'><span> ??? </span></a></li>
+              </ul>
+           </li>
+           <li class='has-sub'><a href='#'><span>NEWS & EVENT</span></a>
+              <ul>
+                 <li><a href='#'><span>Partnership</span></a></li>
+                 <li><a href='#'><span>News</span></a></li>
+                 <li class='last'><a href='#'><span>Job</span></a></li>
+              </ul>
+           </li>
+           <li class='has-sub'><a href='../success.html'><span>USER PAGE</span></a>
+              <ul>
+                 <li><a href='../success.html'><span>Welcome</span></a></li>
+                 <li><a href='../../userpage/user_page.html'><span>User info</span></a></li>
+                 <li><a href='#'><span>Activity record</span></a></li>
+                 <li class='last'><a href='#'><span>Withdrawal</span></a></li>
+              </ul>
+           </li>
+        </ul>
+        </div>
+     </div>
+
+</head>
+
+<body>
+  <div id="uphead">
+      <div>
+      <p id="h">User List</p>
+      <p id="subh">user list, add user, delete user, edit user, add company, add level, pretty much everything</p>
+     </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="list1">
+<!-- 솔팅, 필터 -->
+      <table id="everyone">
+        <tr>
+          <th><label id="a"> Client </label></th>
+          <th><label id="a"> Email address </label></th>
+          <th><label id="a"> Phone Number </label></th>
+          <th><label id="a"> Organization </label></th>
+          <th><label id="a"> Confirmation </label></th>
+          <th><button id="uxbtn">delete</button></th>
+        </tr>
+      </table>
+        <br>
+        <button id="makeu">Update Users</button>
+      </div>
+
+      <div id="makeuform" style="display: none;">
+      <table id="makepeople">
+        <tr>
+          <td>
+            <label for="mclient0" class="inp">
+            <input type="text" id="mclient0" placeholder="&nbsp;" required/>
+            <span class="iform"> client name </span>
+            <span class= "inputborder"></span>
+          </label>
+          </td>
+          <td>
+            <label for="memail0" class="inp">
+            <input type="text" id="memail0" placeholder="&nbsp;" required/>
+            <span class="iform"> Email </span>
+            <span class= "inputborder"></span>
+          </label>
+          </td>
+          <td>
+            <label for="mphone0" class="inp">
+            <input type="text" id="mphone0" placeholder="&nbsp;"/>
+            <span class="iform"> Phone </span>
+            <span class= "inputborder"></span>
+          </label>
+          </td>
+          <td>
+            <label for="mcorp0" class="inp">
+            <input type="text" id="mcorp0" placeholder="&nbsp;" required/>
+            <span class="iform"> Organization </span>
+            <span class= "inputborder"></span>
+          </label>
+          </td>
+        </tr>
+      </table>
+        <br>
+        <span id="warn" style="display: none;"></span>
+        <button id="addmake">+</button>
+        <button type="submit" id="umade">Submit</button>
+      </div>
+
+<br>
+<br>
+       <div id="list2">
+<!-- 솔팅, 필터 -->
+      <table id="everywhere">
+        <tr>
+          <!-- <th><label id="a"> Level </label></th> -->
+          <th><label id="b"> Organization list </label></th>
+          <th><button id="x">delete</button></th>
+          <th><button id="e">edit</button></th>
+        </tr>
+      </table>
+      <br>
+      <button id="makeo">Update Organization</button>
+      <br>
+      <br>
+      </div>
+
+
+      <div id="detail" style="display: none;">
+        <label><span id="title"></span></label></br>
+        <label>LEVEL :</label><label><span id="thislevel"></span></label></br>
+        <label>Acess Rights :</label><label id = "access"></label>
+      </div>
+
+
+      <div id="makecform" style="display: none;">
+      <table id="makecorp">
+        <tr>
+          <td>
+            <label for="mCname" class="inp">
+            <input type="text" id="mCname" placeholder="&nbsp;" required/>
+            <span class="iform"> Organization </span>
+            <span class= "inputborder"></span>
+          </label>
+          </td>
+          <td>
+            <span id="mlevel"> </span>
+          </td>
+          <td>
+            <label for="maccess" class="inp">
+            <input type="text" id="maccess" placeholder="&nbsp;"/>
+            <span class="iform"> Access right </span>
+            <span class= "inputborder"></span>
+          </label>
+          </td>
+        </tr>
+      </table>
+        <br>
+        <button id="addmakeC">+</button>
+        <button type="submit" id="Cmade">Submit</button>
+      </div>
+
+    </div>
+
+
+  <script src="userlist.js?v=7"></script>
+</body>
+</html>

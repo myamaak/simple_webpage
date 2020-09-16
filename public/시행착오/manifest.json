@@ -1,0 +1,14 @@
+{
+  "name": "Standigm webpage",
+  "short_name": "Standgim",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "lang": "en-US",
+  "description": "Standigm client managing webpage application",
+  "prefer_related_applications": false,
+  "theme_color": "#fff",
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "gcm_sender_id": "103953800507"
+}

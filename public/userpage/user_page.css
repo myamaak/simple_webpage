@@ -1,0 +1,163 @@
+
+#h{
+  text-transform: uppercase;
+  font-size: 30px;
+  color: #FFFFFF;
+  font-family: Tahoma;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  text-shadow: 1px 2px 2px #292E30;
+  text-align: center;
+}
+
+#subh{
+  color: #FFFFFF;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: Tahoma;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  text-shadow: 1px 2px 2px #292E30;
+  position: relative;
+}
+
+
+div.contain{
+  box-sizing: border-box;
+  width: 500px;
+  /* 유저정보는 테두리 폭 좀 넓게했음 */
+  border-radius: 10px;
+  border: 1.5px solid #3C667C;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /* background: #041D71; */
+  /* background: linear-gradient(to bottom, #041D71 0%, #7F8FA3 100%); */
+  /* text-align: center; */
+  margin: auto;
+}
+
+table{
+  margin-top: 10px;
+   margin-bottom: 20px;
+   width:80%;
+   margin-left:10%;
+   margin-right:10%;
+   /* font-family: Tahoma;
+   letter-spacing: 2px;
+   word-spacing: 1px; */
+   border: 1px solid white;
+}
+
+td#psw{
+ text-align: right;
+}
+label#warning{
+  font-family: Tahoma;
+  font-size: 10px;
+  text-align: right;
+  color: red;
+  font-weight: normal;
+}
+
+td#a{
+  padding: 15px;
+}
+
+label{
+  font-size: 11px;
+  color: #112977;
+  font-weight: bold;
+}
+
+td#c{
+  font-family: Tahoma;
+  letter-spacing: 2px;
+  word-spacing: 1px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: #F0F8FF;
+  padding: 17px;
+}
+
+
+
+
+p.btn{
+  text-align: center;
+}
+
+input[type=text],input[type=email], select{
+  width: 100%;
+  height: inherit;
+  font-family: Tahoma;
+  letter-spacing: 2px;
+  word-spacing: 1px;
+  font-size: 14px;
+  height: auto;
+  display: inline-block;
+  border: none;
+  background-color: #F0F8FF;
+  outline:none;
+}
+
+input[type=text],input[type=email], select ::after {
+
+}
+
+#editbtn,
+#confirm{
+  width:80%;
+  margin-left:10%;
+  margin-right:10%;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+
+  -moz-box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bddbfa), color-stop(1, #80b5ea));
+	background:-moz-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
+	background:-webkit-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
+	background:-o-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
+	background:-ms-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
+	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bddbfa', endColorstr='#80b5ea',GradientType=0);
+	background-color:#bddbfa;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+	border-radius:25px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Tahoma;
+	font-size:15px;
+  outline:none;
+  padding: 10px;
+	/* padding:6px 24px; */
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+
+#editbtn:hover,
+#confirm:hover{
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #80b5ea), color-stop(1, #bddbfa));
+	background:-moz-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);
+	background:-webkit-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);
+	background:-o-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);
+	background:-ms-linear-gradient(top, #80b5ea 5%, #bddbfa 100%);
+	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80b5ea', endColorstr='#bddbfa',GradientType=0);
+	background-color:#80b5ea;
+
+}
+
+#editbtn:active
+#confirm:hover{
+  position:relative;
+	top:1px;
+}

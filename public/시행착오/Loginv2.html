@@ -1,0 +1,132 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="Login.css">
+  <title>Standigm : Login</title>
+
+  <a href="" ><h1> Standigm ; something that sounds smart </h1></a>
+  <!--on click link back to home maybe not text img-->
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDaiWiO6Px0ufB5AAaz2N-7cYpSDolV8gM",
+      authDomain: "standigmtrial.firebaseapp.com",
+      databaseURL: "https://standigmtrial.firebaseio.com",
+      projectId: "standigmtrial",
+      storageBucket: "standigmtrial.appspot.com",
+      messagingSenderId: "1057146187860"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+    <script src="app.js"> </script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+
+ </head>
+ <body>
+   <!-- The surrounding HTML is left untouched by FirebaseUI.
+        Your app may use that space for branding, controls and other customizations.-->
+   <h1 align="center" style="color:white;">Firebase Auth Quickstart Demo</h1>
+   <div id="firebaseui-auth-container"></div>
+
+
+   <div id=logform>
+     <h3>Log in to your account</h3>
+     <div id=inputf>
+       <input type="text" placeholder="Username or E-mail" id="userid"><br>
+       <input type="password" placeholder="password" id="userpw"><br>
+       <input type="button" value="Log In" onclick="login()" id="login"><br><br>
+     </div>
+     <input type="radio" name="" id="">Remember me!
+     <a href= "">Forgot Id/password</a>
+   </div>
+
+
+
+   <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <script type="text/javascript">
+       // FirebaseUI config.
+       var firebase = require('firebase');
+       var firebaseui = require('firebaseui');
+
+       var uiConfig = {
+         callbacks: {
+           signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+             var user = authResult.user;
+             var credential = authResult.credential;
+             var isNewUser = authResult.additionalUserInfo.isNewUser;
+             var providerId = authResult.additionalUserInfo.providerId;
+             var operationType = authResult.operationType;
+             // Do something with the returned AuthResult.
+             // Return type determines whether we continue the redirect automatically
+             // or whether we leave that to developer to handle.
+             return true;
+           },
+           signInFailure: function(error) {
+             // Some unrecoverable error occurred during sign-in.
+             // Return a promise when error handling is completed and FirebaseUI
+             // will reset, clearing any UI. This commonly occurs for error code
+             // 'firebaseui/anonymous-upgrade-merge-conflict' when merge conflict
+             // occurs. Check below for more details on this.
+             return handleUIError(error);
+           },
+           uiShown: function() {
+             // The widget is rendered.
+             // Hide the loader.
+             document.getElementById('loader').style.display = 'none';
+           }
+         },
+         credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
+        // Query parameter name for mode.
+        queryParameterForWidgetMode: 'mode',
+        // Query parameter name for sign in success url.
+        queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
+        // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+        signInFlow: 'popup',
+         signInSuccessUrl: 'Loggedin.js',
+         signInOptions: [
+           var provider = new firebase.auth.GoogleAuthProvider()
+           // Leave the lines as is for the providers you want to offer your users.
+           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+           firebase.auth.EmailAuthProvider.PROVIDER_ID
+
+         ],
+         // Terms of service url.
+         tosUrl: '<your-tos-url>'
+       };
+
+       firebase.auth().createUserWithEmailAndPassword(userid, userpw).catch(function(error) {
+         // Handle Errors here.
+         var errorCode = error.code;
+         var errorMessage = error.message;
+       });
+
+
+       // Initialize the FirebaseUI Widget using Firebase.
+       var ui = new firebaseui.auth.AuthUI(firebase.auth());
+       // The start method will wait until the DOM is loaded.
+       ui.start('#firebaseui-auth-container', {
+           signInOptions: [
+             {
+       provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+       scopes: [
+         'https://www.googleapis.com/auth/plus.login'
+       ],
+       customParameters: {
+         // Forces account selection even when one account
+         // is available.
+         prompt: 'select_account'
+       }
+     },
+     {
+       provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+       requireDisplayName: false
+     }
+   ]
+ });
+
+     </script>
+
+ </body>
+</html>

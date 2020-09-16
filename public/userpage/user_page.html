@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Standigm - my page</title>
+    <script src="https://smartlock.google.com/client"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+    <link href="user_page.css?v=7" rel="stylesheet"></link>
+    <link rel="manifest" href="../manifest.json">
+    <link href="../form.css?v=4" rel="stylesheet"></link>
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("user_ofqe0fW3HtLHTlyUxeHUw");
+       })();
+    </script>
+
+    <!-- css불러오기ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ -->
+
+      <script src="../config.js?v=1"></script>
+      <script src="../app.js?v=9"></script>
+      <!-- <script src="user_page.js?v=2"></script> -->
+
+      <div class="topbtngroup">
+        <button onclick="window.location.href='../index.html'" id="homebtn">Standigm</button>
+
+        <div class='cssmenu' id='cssmenu'>
+        <ul>
+           <li class='has-sub' id='only'><a href='#'><span>AUTHORITIES</span></a>
+             <ul>
+                <li><a href='../authority/userlist.html'><span>User admin</span></a></li>
+                <li><a href='#'><span>personal outcome</span></a></li>
+                <li><a href='#'><span>official schedule</span></a></li>
+                <li class='last'><a href='#'><span>ongoing projects</span></a></li>
+             </ul>
+           </li>
+           <li class='has-sub'><a href='#'><span>INTRODUCTION</span></a>
+              <ul>
+                 <li><a href='#'><span>Home</span></a></li>
+                 <li><a href='#'><span>Team</span></a></li>
+                 <li class='last'><a href='#'><span>Contact</span></a></li>
+              </ul>
+           </li>
+           <li class='has-sub'><a href='#'><span>PROJECT</span></a>
+              <ul>
+                 <li><a href='#'><span>project #1</span></a></li>
+                 <li><a href='#'><span>project #2</span></a></li>
+                 <li><a href='#'><span>project #3</span></a></li>
+                 <li class='last'><a href='#'><span>project #4</span></a></li>
+              </ul>
+           </li>
+           <li class='has-sub'><a href='#'><span>SERVICE</span></a>
+              <ul>
+                 <li><a href='#'><span>Expander</span></a></li>
+                 <li class='last'><a href='#'><span> ??? </span></a></li>
+              </ul>
+           </li>
+           <li class='has-sub'><a href='#'><span>NEWS & EVENT</span></a>
+              <ul>
+                 <li><a href='#'><span>Partnership</span></a></li>
+                 <li><a href='#'><span>News</span></a></li>
+                 <li class='last'><a href='#'><span>Job</span></a></li>
+              </ul>
+           </li>
+           <li class='has-sub'><a href='../success.html'><span>USER PAGE</span></a>
+              <ul>
+                 <li><a href='../success.html'><span>Welcome</span></a></li>
+                 <li><a href='user_page.html'><span>User info</span></a></li>
+                 <li><a href='#'><span>Activity record</span></a></li>
+                 <li class='last'><a href='#'><span>Withdrawal</span></a></li>
+              </ul>
+           </li>
+        </ul>
+        </div>
+     </div>
+
+</head>
+<body>
+
+</br>
+    <div id="uphead">
+      <div>
+      <p id="h">User Information</p>
+      <p id="subh">Your private information will be displayed here.
+        If you want to further enjoy our services, tell us more information about yourself.</br>
+        Only the users who registered their organization information can have proper access rights</p>
+     </div>
+    </div>
+
+    <div class="contain">
+
+      <div id=read>
+      <table id="readinfo">
+          <tr>
+            <td id="a"><label> User Name :</label></td>
+            <!-- <td id="b"><label>:</label></td> -->
+          </tr>
+          <tr>
+            <td id="c"><span id="uname"></span></td>
+          </tr>
+          <tr>
+            <td id="a"><label> Phone Number :</label></td>
+            <!-- <td id="b"><label>:</label></td> -->
+          </tr>
+          <tr>
+            <td id="c"><span id="uphone"></span></td>
+          </tr>
+          <tr>
+            <td id="a"><label> E-mail :</label></td>
+            <!-- <td id="b"><label>:</label></td> -->
+          </tr>
+          <tr>
+            <td id="c"><span id="umail"></span></td>
+          </tr>
+          <tr>
+            <td id="a"><label> Organization :</label></td>
+            <!-- <td id="b"><label>:</label></td> -->
+          </tr>
+          <tr>
+            <td id="c"><span id="ucorp"></span></td>
+          </tr>
+          <tr>
+          <td id="w"><label id="warning"> your belongings need to be confirmed by administrator </label></td>
+        </tr>
+          <!-- <tr>
+            <td><label> Service     : </label></td>
+            <td id="userv"></td>
+          </tr> -->
+      </table>
+        </br>
+        <p class ="btn"><button type="submit" name="editbtn" id="editbtn" style="text-align: center;">EDIT</button></p>
+      </div>
+
+      <div id="edit" style="display: none;">
+         <!-- 이건 빈칸으로 두면 안돼! 같은 주의사항 뜨게 하기 -->
+      <table id="infoedit">
+          <tr>
+            <td id="a"><label> User Name :</label></td>
+          </tr>
+          <tr>
+            <td id="c"><input type="text" id="uname_after" required></td>
+          </tr>
+          <tr>
+            <td id="a"><label> Phone Number :</label></td>
+          </tr>
+          <tr>
+            <td id="c"><input type="text" id="uphone_after" /></td>
+          </tr>
+          <tr>
+            <td id="a"><label> E-mail :</label></td>
+          </tr>
+          <tr>
+            <td id="c"><input type="email" id="umail_after" required/></td>
+          </tr>
+          <tr>
+            <td id="a"><label> Organization :</label></td>
+          </tr>
+          <tr>
+            <td id="c">
+              <select id="ucorp_after" required>
+                <option value="Standigm">Standigm</option>
+                <option value="LG">LG</option>
+                <option value="KT">KT</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Apple">Apple</option>
+                <option value="Ajou">Ajou University</option>
+                <option value="etc">Unregistered</option>
+              </select>
+              <span id="ucorp_set" style="display: none;"></span>
+            </td>
+          </tr>
+          <!-- <tr>
+            <td id="a"><label> password :</label></td>
+          </tr>
+          <tr>
+            <td id="c"><input type="password" id="psw"/></td>
+          </tr>
+          <tr>
+          <td id="psw"><label id="pswmsg"> Type your password before submition to change information like above </label></td>
+        </tr> -->
+
+      </table>
+        <p class="btn">
+        <button type="submit" name="confirm" id="confirm">SUBMIT</button>
+        <!-- <button type="submit" name="cancel" id="cancel">CANCEL</button> -->
+      </p>
+    </div>
+
+    <div id="editdone" style="display: none;">
+      <p> user information changed. </p>
+    </div>
+
+  </div>
+</br>
+</br>
+</br>
+  <script src="../appDB.js?v=6"></script>
+  <!-- db 불러오는 함수,,,코드는 항상 마지막에 위치하도록 한다 -->
+
+</body>
+</html>

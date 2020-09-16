@@ -1,0 +1,206 @@
+html, body{
+  height: 100%;
+}
+body{
+  display: grid;
+  font-family: Avenir;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+*{
+  box-sizing: border-box
+  }
+
+#h{
+  text-transform: uppercase;
+  font-size: 30px;
+  color: #FFFFFF;
+  font-family: Tahoma;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  text-shadow: 1px 2px 2px #292E30;
+  text-align: center;
+}
+
+#subh{
+  color: #FFFFFF;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: Tahoma;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  text-shadow: 1px 2px 2px #292E30;
+  position: relative;
+}
+
+div#list1{
+  text-align: center;
+}
+div#makeuform{
+  text-align: center;
+}
+div#list2{
+  text-align: center;
+}
+div#makecform{
+  text-align: center;
+}
+div#detail{
+  border: 1px solid #ddd;
+  text-align: center;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 40px;
+}
+
+table#everyone{
+  border: 1px solid #ddd;
+  align: center;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
+  font-family: Tahoma;
+  font-size: 12px;
+  padding: 40px;
+}
+
+table#makepeople{
+  border: 1px solid #ddd;
+  /* text-align: center; */
+  width:70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+table#makecorp{
+  border: 1px solid #ddd;
+  /* text-align: center; */
+  width:70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+table#everywhere{
+  border: 1px solid #ddd;
+  padding: 40px;
+  margin-top: 40px;
+  align: center;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  text-align: center;
+  font-family: Tahoma;
+  font-size: 12px;
+}
+
+th{
+  padding: 15px;
+  font-size: 13px;
+}
+
+td{
+  padding: 15px;
+}
+
+
+button.TF{
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    outline:none;
+    font-family: Tahoma;
+    font-size: 14;
+}
+
+button.TF:hover{
+ text-shadow: 2px 2px 3px #868686;
+}
+
+button.TF:active {
+	position:relative;
+	top:1px;
+}
+
+button.corpbtn{
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  outline:none;
+  font-family: Tahoma;
+  font-size: 14;
+}
+
+button.corpbtn:hover{
+
+}
+
+button.corpbtn:active{
+  position:relative;
+  top:1px;
+}
+
+
+.inp{
+  position: relative;
+  margin: auto;
+  width: 100%;
+  max-width: 280px;
+}
+.iform{
+    position: absolute;
+    top: 16px;
+    left: 0;
+    font-size: 16px;
+    color: #9098A9;
+    font-weight: 500;
+    transform-origin: 0 0;
+    transition: all .2s ease;
+}
+.inputborder{
+  position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: all .15s ease;
+}
+input[type="text"]{
+  -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 12px 0;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1.5px solid #C8CCD4;
+    background: none;
+    color: #223254;
+    transition: all .15s ease;
+}
+input[type="text"]:hover{
+   background: rgba(#223254,.03);
+}
+input[type="text"]:not(:placeholder-shown)+span{
+  color: #5A667F;
+  transform: translateY(-30px) scale(.70);
+}
+input[type="text"]:focus{
+  border-bottom: 1.5px solid #84bbf3;
+  background: none;
+  outline: none;
+}
+input[type="text"]:focus+span{
+     color: #84bbf3;
+     transform: translateY(-30px) scale(.70);
+}
+
+input[type="text"]:focus+span+.inputborder{
+     transform: scaleX(1);
+}
